@@ -1,6 +1,8 @@
 # Create Microservices Architecture Using Nest.js
 
-[Nest.js](https://docs.nestjs.com/) is awsome, it's support developing a vast kind of architectures, this example contains a hybrid application where services talking each other using HTTP and TCP. 
+[Nest.js](https://docs.nestjs.com/) is awsome! especially if you're Angular developer, because it's use Typescript, it's look-and-feel very similar and it's also lends many features such as: dependency injection mechansim, it's use decorators like @Module @Injectable and etc.
+
+[Nest.js](https://docs.nestjs.com/) is supporting a vast kind of architectures for developing, and so on... this example contains a hybrid application where services talking each other using HTTP and TCP.
 <br />
 
 This application contains two parts: 
