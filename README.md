@@ -5,6 +5,18 @@
 [Nest.js](https://docs.nestjs.com/) is supporting a vast kind of architectures for developing, and so on... this example contains a hybrid application where services talking each other using HTTP and TCP.
 <br />
 
+In this example I use two microservice metodologies:
+<br />
+
+TCP - where service connecting each other directly through TCP 
+<img src="https://docs.nestjs.com/assets/Microservices_1.png" width="800" />
+<br />
+
+Redis - where service connecting each other through message broker (Redis)
+<img src="https://docs.nestjs.com/assets/Redis_1.png" width="800" />
+
+<br />
+
 This application contains two parts: 
 1. <b>main.app</b> the main proccess - the entry point, where you can navigate and execute the services behind, and;
 2. <b>math.service</b> the microservice that running in the background. 
@@ -28,5 +40,27 @@ $ npm run start:dev
 $ npm run start:debug
 ```
 ## Testing the app
-<img src="./ms.JPG" alt="Test The APP" />
+<img src="ms.JPG" width="800" />
 NOTE: the server running on port 3000 and the service on the port of 3001 therfore, both port's should be available before running the app. 
+
+## Running the app using Redis as message broker
+In order to run the example you need first download redis, change the microservice configuration to:
+```javascript
+{
+  transport: Transport.REDIS,
+  options: {
+    url: 'redis://localhost:6379'
+  }
+};
+```
+Install redis dependencies for each service/apps, get into each folder and run
+```npm
+$ npm install redis
+```
+<img src="redis.JPG" width="800" />
+
+<br />
+NOTE: In order to see the messages going through redis, you should monitor it by command:
+```bash
+ ./redis-cli monitor
+ ```
