@@ -18,7 +18,22 @@ export class MathService {
   }
 
   async accumulate(data: number[]) {
-     return await this.client
-      .send<number, number[]>('sum', data);
+    if (typeof data === 'string') {
+      logger.log('data provided as a string format, attempt to fix it.');
+      const temp = (data as string).trim();
+      if (temp[0] === '[' && temp[temp.length - 1] === ']') {
+        data = JSON.parse(temp);
+      }
+      else {
+        data = temp.split(',').map(item => +item);
+      }
+    }
+
+    if (data instanceof Array) {
+      return await this.client
+        .send<number, number[]>('sum', data);
+    }
+
+    throw new Error('Unsupported format');
   }
 }
