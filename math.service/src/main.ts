@@ -6,13 +6,17 @@ import { AppModule } from './app.module';
 const logger = new Logger('Main');
 
 const options: MicroserviceOptions = {
-  transport: Transport.TCP,
+  // transport: Transport.TCP,
+  // options: {
+  //   host: '127.0.0.1',
+  //   port: 3001,
+  //   retryAttempts: 5,
+  //   retryDelay: 3000
+  // },
+  transport: Transport.REDIS,
   options: {
-    host: '127.0.0.1',
-    port: 3001,
-    retryAttempts: 5,
-    retryDelay: 3000
-  },
+    url: 'redis://localhost:6379'
+  }
 }
 
 async function bootstrap() {
