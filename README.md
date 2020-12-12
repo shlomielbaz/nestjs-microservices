@@ -36,7 +36,6 @@ $ npm run start:dev
 $ npm run start:debug
 ```
 
-<br />
 ### Testing the app:
 <img src="ms.JPG" width="800" />
 NOTE: the server running on port 3000 and the service on the port of 3001 therfore, both port's should be available before running the app. 
